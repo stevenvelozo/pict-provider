@@ -1,0 +1,51 @@
+{
+    "name": "pict-provider",
+    "version": "1.0.0",
+    "description": "Pict Provider Base Class",
+    "main": "source/Pict-Provider.js",
+    "scripts": {
+        "start": "node source/Pict-Provider.js",
+        "test": "npx mocha -u tdd -R spec",
+        "tests": "npx mocha -u tdd --exit -R spec --grep",
+        "coverage": "npx nyc --reporter=lcov --reporter=text-lcov npx mocha -- -u tdd -R spec",
+        "build": "npx quack build",
+        "docker-dev-build": "docker build ./ -f Dockerfile_LUXURYCode -t pict-provider-image:local",
+        "docker-dev-run": "docker run -it -d --name pict-provider-dev -p 24125:8080 -p 30027:8086 -v \"$PWD/.config:/home/coder/.config\"  -v \"$PWD:/home/coder/pict-provider\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" pict-provider-image:local",
+        "docker-dev-shell": "docker exec -it pict-provider-dev /bin/bash"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stevenvelozo/pict-provider.git"
+    },
+    "author": "steven velozo <steven@velozo.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/stevenvelozo/pict-provider/issues"
+    },
+    "homepage": "https://github.com/stevenvelozo/pict-provider#readme",
+    "devDependencies": {
+        "pict": "^1.0.153",
+        "quackage": "^1.0.27"
+    },
+    "dependencies": {
+        "fable-serviceproviderbase": "^3.0.12"
+    },
+    "mocha": {
+        "diff": true,
+        "extension": [
+            "js"
+        ],
+        "package": "./package.json",
+        "reporter": "spec",
+        "slow": "75",
+        "timeout": "5000",
+        "ui": "tdd",
+        "watch-files": [
+            "source/**/*.js",
+            "test/**/*.js"
+        ],
+        "watch-ignore": [
+            "lib/vendor"
+        ]
+    }
+}
