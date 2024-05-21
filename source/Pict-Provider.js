@@ -12,7 +12,9 @@ const defaultPictProviderSettings = (
 		AutoSolveWithApp: true,
 		AutoSolveOrdinal: 0,
 
-		Manifests: {}
+		Manifests: {},
+
+		Templates: []
 	});
 
 class PictProvider extends libFableServiceBase
@@ -38,16 +40,9 @@ class PictProvider extends libFableServiceBase
 		this.initializeTimestamp = false;
 		this.lastSolvedTimestamp = false;
 
-		// Load all default templates from the array in the options
-		// Templates are in the form of {Prefix:'',Postfix:'-List-Row',Template:'Template content',Source:'TemplateSourceString'}
-		if (!this.options.DefaultTemplates)
+		for (let i = 0; i < this.options.Templates.length; i++)
 		{
-			this.options.DefaultTemplates = [];
-		}
-
-		for (let i = 0; i < this.options.DefaultTemplates.length; i++)
-		{
-			let tmpDefaultTemplate = this.options.DefaultTemplates[i];
+			let tmpDefaultTemplate = this.options.Templates[i];
 
 			if (!tmpDefaultTemplate.hasOwnProperty('Postfix') || !tmpDefaultTemplate.hasOwnProperty('Template'))
 			{
@@ -167,6 +162,54 @@ class PictProvider extends libFableServiceBase
 	onAfterInitializeAsync(fCallback)
 	{
 		this.onAfterInitialize();
+		return fCallback();
+	}
+
+
+	onPreRender()
+	{
+		if (this.pict.LogNoisiness > 3)
+		{
+			this.log.trace(`PictProvider [${this.UUID}]::[${this.Hash}] ${this.options.ProviderIdentifier} onPreRender:`);
+		}
+		return true;
+	}
+	onPreRenderAsync(fCallback)
+	{
+		this.onPreRender();
+		return fCallback();
+	}
+	render()
+	{
+		return this.onPreRender();
+	}
+	renderAsync(fCallback)
+	{
+		this.onPreRender();
+		return fCallback();
+	}
+
+
+	onPreSolve()
+	{
+		if (this.pict.LogNoisiness > 3)
+		{
+			this.log.trace(`PictProvider [${this.UUID}]::[${this.Hash}] ${this.options.ProviderIdentifier} onPreSolve:`);
+		}
+		return true;
+	}
+	onPreSolveAsync(fCallback)
+	{
+		this.onPreSolve();
+		return fCallback();
+	}
+	solve()
+	{
+		return this.onPreSolve();
+	}
+	solveAsync(fCallback)
+	{
+		this.onPreSolve();
 		return fCallback();
 	}
 }
