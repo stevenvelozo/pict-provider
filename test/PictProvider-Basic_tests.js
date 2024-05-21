@@ -6,7 +6,7 @@
 const Chai = require('chai');
 const Expect = Chai.expect;
 
-const libPict = require('pict');
+const libPict = require('../../pict/source/Pict.js');
 
 const libPictProvider = require(`../source/Pict-Provider.js`);
 

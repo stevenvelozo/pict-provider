@@ -40,6 +40,11 @@ class PictProvider extends libFableServiceBase
 
 		// Load all default templates from the array in the options
 		// Templates are in the form of {Prefix:'',Postfix:'-List-Row',Template:'Template content',Source:'TemplateSourceString'}
+		if (!this.options.DefaultTemplates)
+		{
+			this.options.DefaultTemplates = [];
+		}
+
 		for (let i = 0; i < this.options.DefaultTemplates.length; i++)
 		{
 			let tmpDefaultTemplate = this.options.DefaultTemplates[i];
