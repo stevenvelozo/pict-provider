@@ -1,5 +1,7 @@
 const libFableServiceBase = require('fable-serviceproviderbase');
 
+const libPackage = require('../package.json');
+
 const defaultPictProviderSettings = (
 	{
 		ProviderIdentifier: false,
@@ -30,6 +32,8 @@ class PictProvider extends libFableServiceBase
 		}
 
 		this.serviceType = 'PictProvider';
+		/** @type {Object} */
+		this._Package = libPackage;
 
 		// Convenience and consistency naming
 		this.pict = this.fable;

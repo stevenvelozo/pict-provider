@@ -1,6 +1,6 @@
 {
     "name": "pict-provider",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Pict Provider Base Class",
     "main": "source/Pict-Provider.js",
     "scripts": {
@@ -24,11 +24,11 @@
     },
     "homepage": "https://github.com/stevenvelozo/pict-provider#readme",
     "devDependencies": {
-        "pict": "^1.0.153",
-        "quackage": "^1.0.27"
+        "pict": "^1.0.215",
+        "quackage": "^1.0.33"
     },
     "dependencies": {
-        "fable-serviceproviderbase": "^3.0.12"
+        "fable-serviceproviderbase": "^3.0.15"
     },
     "mocha": {
         "diff": true,
