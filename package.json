@@ -1,6 +1,6 @@
 {
     "name": "pict-provider",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Pict Provider Base Class",
     "main": "source/Pict-Provider.js",
     "scripts": {
@@ -11,8 +11,11 @@
         "build": "npx quack build",
         "docker-dev-build": "docker build ./ -f Dockerfile_LUXURYCode -t pict-provider-image:local",
         "docker-dev-run": "docker run -it -d --name pict-provider-dev -p 24125:8080 -p 30027:8086 -v \"$PWD/.config:/home/coder/.config\"  -v \"$PWD:/home/coder/pict-provider\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" pict-provider-image:local",
-        "docker-dev-shell": "docker exec -it pict-provider-dev /bin/bash"
+        "docker-dev-shell": "docker exec -it pict-provider-dev /bin/bash",
+        "lint": "eslint source/**",
+        "types": "tsc -p ."
     },
+    "types": "types/source/Pict-Provider.d.ts",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/stevenvelozo/pict-provider.git"
@@ -24,8 +27,11 @@
     },
     "homepage": "https://github.com/stevenvelozo/pict-provider#readme",
     "devDependencies": {
-        "pict": "^1.0.215",
-        "quackage": "^1.0.33"
+        "@eslint/js": "^9.28.0",
+        "eslint": "^9.28.0",
+        "pict": "^1.0.270",
+        "quackage": "^1.0.41",
+        "typescript": "^5.8.3"
     },
     "dependencies": {
         "fable-serviceproviderbase": "^3.0.15"

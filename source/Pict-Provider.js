@@ -11,6 +11,8 @@ const defaultPictProviderSettings = (
 		AutoInitialize: true,
 		AutoInitializeOrdinal: 0,
 
+		AutoLoadDataWithApp: true,
+
 		AutoSolveWithApp: true,
 		AutoSolveOrdinal: 0,
 
@@ -21,11 +23,30 @@ const defaultPictProviderSettings = (
 
 class PictProvider extends libFableServiceBase
 {
+	/**
+	 * @param {import('fable')} pFable - The Fable instance.
+	 * @param {Record<string, any>} [pOptions] - The options for the provider.
+	 * @param {string} [pServiceHash] - The service hash for the provider.
+	 */
 	constructor(pFable, pOptions, pServiceHash)
 	{
 		// Intersect default options, parent constructor, service information
 		let tmpOptions = Object.assign({}, JSON.parse(JSON.stringify(defaultPictProviderSettings)), pOptions);
 		super(pFable, tmpOptions, pServiceHash);
+
+		/** @type {import('fable') & import('pict') & { instantiateServiceProviderWithoutRegistration(pServiceType: string, pOptions?: Record<string, any>, pCustomServiceHash?: string): any }} */
+		this.fable;
+		/** @type {import('fable') & import('pict') & { instantiateServiceProviderWithoutRegistration(pServiceType: string, pOptions?: Record<string, any>, pCustomServiceHash?: string): any }} */
+		this.pict;
+		/** @type {any} */
+		this.log;
+		/** @type {Record<string, any>} */
+		this.options;
+		/** @type {string} */
+		this.UUID;
+		/** @type {string} */
+		this.Hash;
+
 		if (!this.options.ProviderIdentifier)
 		{
 			this.options.ProviderIdentifier = `AutoProviderID-${this.fable.getUUID()}`;
@@ -74,6 +95,7 @@ class PictProvider extends libFableServiceBase
 		}
 		return true;
 	}
+
 	onBeforeInitializeAsync(fCallback)
 	{
 		this.onBeforeInitialize();
@@ -89,6 +111,7 @@ class PictProvider extends libFableServiceBase
 		}
 		return true;
 	}
+
 	onInitializeAsync(fCallback)
 	{
 		this.onInitialize();
@@ -116,6 +139,7 @@ class PictProvider extends libFableServiceBase
 			return false;
 		}
 	}
+
 	initializeAsync(fCallback)
 	{
 		if (this.pict.LogControlFlow)
@@ -140,7 +164,11 @@ class PictProvider extends libFableServiceBase
 				(pError) =>
 				{
 					this.initializeTimestamp = this.pict.log.getTimeStamp();
-					if (this.pict.LogNoisiness > 0)
+					if (pError)
+					{
+						this.log.error(`PictProvider [${this.UUID}]::[${this.Hash}] ${this.options.ProviderIdentifier} initialization failed: ${pError.message || pError}`, { Stack: pError.stack });
+					}
+					else if (this.pict.LogNoisiness > 0)
 					{
 						this.log.info(`PictProvider [${this.UUID}]::[${this.Hash}] ${this.options.ProviderIdentifier} initialization complete.`);
 					}
@@ -163,12 +191,12 @@ class PictProvider extends libFableServiceBase
 		}
 		return true;
 	}
+
 	onAfterInitializeAsync(fCallback)
 	{
 		this.onAfterInitialize();
 		return fCallback();
 	}
-
 
 	onPreRender()
 	{
@@ -178,21 +206,23 @@ class PictProvider extends libFableServiceBase
 		}
 		return true;
 	}
+
 	onPreRenderAsync(fCallback)
 	{
 		this.onPreRender();
 		return fCallback();
 	}
+
 	render()
 	{
 		return this.onPreRender();
 	}
+
 	renderAsync(fCallback)
 	{
 		this.onPreRender();
 		return fCallback();
 	}
-
 
 	onPreSolve()
 	{
@@ -202,18 +232,51 @@ class PictProvider extends libFableServiceBase
 		}
 		return true;
 	}
+
 	onPreSolveAsync(fCallback)
 	{
 		this.onPreSolve();
 		return fCallback();
 	}
+
 	solve()
 	{
 		return this.onPreSolve();
 	}
+
 	solveAsync(fCallback)
 	{
 		this.onPreSolve();
+		return fCallback();
+	}
+
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data pre-load.
+	 */
+	onBeforeLoadDataAsync(fCallback)
+	{
+		return fCallback();
+	}
+
+	/**
+	 * Hook to allow the provider to load data during application data load.
+	 *
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data load.
+	 */
+	onLoadDataAsync(fCallback)
+	{
+		if (this.pict.LogNoisiness > 3)
+		{
+			this.log.trace(`PictProvider [${this.UUID}]::[${this.Hash}] ${this.options.ProviderIdentifier} onLoadDataAsync:`);
+		}
+		return fCallback();
+	}
+
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data post-load.
+	 */
+	onAfterLoadDataAsync(fCallback)
+	{
 		return fCallback();
 	}
 }
