@@ -58,5 +58,19 @@ declare class PictProvider {
      * @param {(pError?: Error) => void} fCallback - The callback to call after the data post-load.
      */
     onAfterLoadDataAsync(fCallback: (pError?: Error) => void): void;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after the data pre-load.
+     */
+    onBeforeSaveDataAsync(fCallback: (pError?: Error) => void): void;
+    /**
+     * Hook to allow the provider to load data during application data load.
+     *
+     * @param {(pError?: Error) => void} fCallback - The callback to call after the data load.
+     */
+    onSaveDataAsync(fCallback: (pError?: Error) => void): void;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after the data post-load.
+     */
+    onAfterSaveDataAsync(fCallback: (pError?: Error) => void): void;
 }
 //# sourceMappingURL=Pict-Provider.d.ts.map

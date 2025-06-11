@@ -279,6 +279,36 @@ class PictProvider extends libFableServiceBase
 	{
 		return fCallback();
 	}
+
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data pre-load.
+	 */
+	onBeforeSaveDataAsync(fCallback)
+	{
+		return fCallback();
+	}
+
+	/**
+	 * Hook to allow the provider to load data during application data load.
+	 *
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data load.
+	 */
+	onSaveDataAsync(fCallback)
+	{
+		if (this.pict.LogNoisiness > 3)
+		{
+			this.log.trace(`PictProvider [${this.UUID}]::[${this.Hash}] ${this.options.ProviderIdentifier} onSaveDataAsync:`);
+		}
+		return fCallback();
+	}
+
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data post-load.
+	 */
+	onAfterSaveDataAsync(fCallback)
+	{
+		return fCallback();
+	}
 }
 
 module.exports = PictProvider;
