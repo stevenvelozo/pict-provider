@@ -53,14 +53,17 @@ class PictProvider extends libFableServiceBase
 		}
 
 		this.serviceType = 'PictProvider';
-		/** @type {Object} */
+		/** @type {Record<string, any>} */
 		this._Package = libPackage;
 
 		// Convenience and consistency naming
 		this.pict = this.fable;
 
 		// Wire in the essential Pict application state
+		/** @type {Record<string, any>} */
 		this.AppData = this.pict.AppData;
+		/** @type {Record<string, any>} */
+		this.Bundle = this.pict.Bundle;
 
 		this.initializeTimestamp = false;
 		this.lastSolvedTimestamp = false;

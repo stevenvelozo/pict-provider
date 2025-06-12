@@ -23,9 +23,12 @@ declare class PictProvider {
     /** @type {string} */
     Hash: string;
     serviceType: string;
-    /** @type {Object} */
-    _Package: any;
-    AppData: any;
+    /** @type {Record<string, any>} */
+    _Package: Record<string, any>;
+    /** @type {Record<string, any>} */
+    AppData: Record<string, any>;
+    /** @type {Record<string, any>} */
+    Bundle: Record<string, any>;
     initializeTimestamp: boolean;
     lastSolvedTimestamp: boolean;
     onBeforeInitialize(): boolean;
