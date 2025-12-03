@@ -1,6 +1,6 @@
 {
     "name": "pict-provider",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Pict Provider Base Class",
     "main": "source/Pict-Provider.js",
     "scripts": {
@@ -27,11 +27,11 @@
     },
     "homepage": "https://github.com/stevenvelozo/pict-provider#readme",
     "devDependencies": {
-        "@eslint/js": "^9.28.0",
-        "eslint": "^9.28.0",
-        "pict": "^1.0.270",
-        "quackage": "^1.0.41",
-        "typescript": "^5.8.3"
+        "@eslint/js": "^9.39.1",
+        "eslint": "^9.39.1",
+        "pict": "^1.0.342",
+        "quackage": "^1.0.45",
+        "typescript": "^5.9.3"
     },
     "dependencies": {
         "fable-serviceproviderbase": "^3.0.15"

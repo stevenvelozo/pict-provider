@@ -32,21 +32,61 @@ declare class PictProvider {
     initializeTimestamp: boolean;
     lastSolvedTimestamp: boolean;
     onBeforeInitialize(): boolean;
-    onBeforeInitializeAsync(fCallback: any): any;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after pre-pinitialization.
+     *
+     * @return {void}
+     */
+    onBeforeInitializeAsync(fCallback: (pError?: Error) => void): void;
     onInitialize(): boolean;
-    onInitializeAsync(fCallback: any): any;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after initialization.
+     *
+     * @return {void}
+     */
+    onInitializeAsync(fCallback: (pError?: Error) => void): void;
     initialize(): boolean;
-    initializeAsync(fCallback: any): any;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after initialization.
+     *
+     * @return {void}
+     */
+    initializeAsync(fCallback: (pError?: Error) => void): void;
     onAfterInitialize(): boolean;
-    onAfterInitializeAsync(fCallback: any): any;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after initialization.
+     *
+     * @return {void}
+     */
+    onAfterInitializeAsync(fCallback: (pError?: Error) => void): void;
     onPreRender(): boolean;
-    onPreRenderAsync(fCallback: any): any;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after pre-render.
+     *
+     * @return {void}
+     */
+    onPreRenderAsync(fCallback: (pError?: Error) => void): void;
     render(): boolean;
-    renderAsync(fCallback: any): any;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after render.
+     *
+     * @return {void}
+     */
+    renderAsync(fCallback: (pError?: Error) => void): void;
     onPreSolve(): boolean;
-    onPreSolveAsync(fCallback: any): any;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after pre-solve.
+     *
+     * @return {void}
+     */
+    onPreSolveAsync(fCallback: (pError?: Error) => void): void;
     solve(): boolean;
-    solveAsync(fCallback: any): any;
+    /**
+     * @param {(pError?: Error) => void} fCallback - The callback to call after solve.
+     *
+     * @return {void}
+     */
+    solveAsync(fCallback: (pError?: Error) => void): void;
     /**
      * @param {(pError?: Error) => void} fCallback - The callback to call after the data pre-load.
      */
@@ -63,16 +103,22 @@ declare class PictProvider {
     onAfterLoadDataAsync(fCallback: (pError?: Error) => void): void;
     /**
      * @param {(pError?: Error) => void} fCallback - The callback to call after the data pre-load.
+     *
+     * @return {void}
      */
     onBeforeSaveDataAsync(fCallback: (pError?: Error) => void): void;
     /**
      * Hook to allow the provider to load data during application data load.
      *
      * @param {(pError?: Error) => void} fCallback - The callback to call after the data load.
+     *
+     * @return {void}
      */
     onSaveDataAsync(fCallback: (pError?: Error) => void): void;
     /**
      * @param {(pError?: Error) => void} fCallback - The callback to call after the data post-load.
+     *
+     * @return {void}
      */
     onAfterSaveDataAsync(fCallback: (pError?: Error) => void): void;
 }

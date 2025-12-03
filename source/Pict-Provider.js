@@ -99,6 +99,11 @@ class PictProvider extends libFableServiceBase
 		return true;
 	}
 
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after pre-pinitialization.
+	 *
+	 * @return {void}
+	 */
 	onBeforeInitializeAsync(fCallback)
 	{
 		this.onBeforeInitialize();
@@ -115,6 +120,11 @@ class PictProvider extends libFableServiceBase
 		return true;
 	}
 
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after initialization.
+	 *
+	 * @return {void}
+	 */
 	onInitializeAsync(fCallback)
 	{
 		this.onInitialize();
@@ -143,6 +153,11 @@ class PictProvider extends libFableServiceBase
 		}
 	}
 
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after initialization.
+	 *
+	 * @return {void}
+	 */
 	initializeAsync(fCallback)
 	{
 		if (this.pict.LogControlFlow)
@@ -195,6 +210,11 @@ class PictProvider extends libFableServiceBase
 		return true;
 	}
 
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after initialization.
+	 *
+	 * @return {void}
+	 */
 	onAfterInitializeAsync(fCallback)
 	{
 		this.onAfterInitialize();
@@ -210,6 +230,11 @@ class PictProvider extends libFableServiceBase
 		return true;
 	}
 
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after pre-render.
+	 *
+	 * @return {void}
+	 */
 	onPreRenderAsync(fCallback)
 	{
 		this.onPreRender();
@@ -221,6 +246,11 @@ class PictProvider extends libFableServiceBase
 		return this.onPreRender();
 	}
 
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after render.
+	 *
+	 * @return {void}
+	 */
 	renderAsync(fCallback)
 	{
 		this.onPreRender();
@@ -236,6 +266,11 @@ class PictProvider extends libFableServiceBase
 		return true;
 	}
 
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after pre-solve.
+	 *
+	 * @return {void}
+	 */
 	onPreSolveAsync(fCallback)
 	{
 		this.onPreSolve();
@@ -247,6 +282,11 @@ class PictProvider extends libFableServiceBase
 		return this.onPreSolve();
 	}
 
+	/**
+	 * @param {(pError?: Error) => void} fCallback - The callback to call after solve.
+	 *
+	 * @return {void}
+	 */
 	solveAsync(fCallback)
 	{
 		this.onPreSolve();
@@ -285,6 +325,8 @@ class PictProvider extends libFableServiceBase
 
 	/**
 	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data pre-load.
+	 *
+	 * @return {void}
 	 */
 	onBeforeSaveDataAsync(fCallback)
 	{
@@ -295,6 +337,8 @@ class PictProvider extends libFableServiceBase
 	 * Hook to allow the provider to load data during application data load.
 	 *
 	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data load.
+	 *
+	 * @return {void}
 	 */
 	onSaveDataAsync(fCallback)
 	{
@@ -307,6 +351,8 @@ class PictProvider extends libFableServiceBase
 
 	/**
 	 * @param {(pError?: Error) => void} fCallback - The callback to call after the data post-load.
+	 *
+	 * @return {void}
 	 */
 	onAfterSaveDataAsync(fCallback)
 	{
