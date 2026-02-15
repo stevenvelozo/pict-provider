@@ -1,6 +1,6 @@
 {
     "name": "pict-provider",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Pict Provider Base Class",
     "main": "source/Pict-Provider.js",
     "scripts": {
