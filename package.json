@@ -29,12 +29,12 @@
     "devDependencies": {
         "@eslint/js": "^9.39.1",
         "eslint": "^9.39.1",
-        "pict": "^1.0.342",
-        "quackage": "^1.0.45",
+        "pict": "^1.0.345",
+        "quackage": "^1.0.48",
         "typescript": "^5.9.3"
     },
     "dependencies": {
-        "fable-serviceproviderbase": "^3.0.15"
+        "fable-serviceproviderbase": "^3.0.16"
     },
     "mocha": {
         "diff": true,
