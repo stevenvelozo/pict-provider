@@ -12,6 +12,7 @@ const defaultPictProviderSettings = (
 		AutoInitializeOrdinal: 0,
 
 		AutoLoadDataWithApp: true,
+		AutoLoadDataOrdinal: 0,
 
 		AutoSolveWithApp: true,
 		AutoSolveOrdinal: 0,

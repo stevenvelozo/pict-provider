@@ -1,5 +1,5 @@
 export = PictProvider;
-declare class PictProvider {
+declare class PictProvider extends libFableServiceBase {
     /**
      * @param {import('fable')} pFable - The Fable instance.
      * @param {Record<string, any>} [pOptions] - The options for the provider.
@@ -7,22 +7,9 @@ declare class PictProvider {
      */
     constructor(pFable: any, pOptions?: Record<string, any>, pServiceHash?: string);
     /** @type {import('fable') & import('pict') & { instantiateServiceProviderWithoutRegistration(pServiceType: string, pOptions?: Record<string, any>, pCustomServiceHash?: string): any }} */
-    fable: any & import("pict") & {
-        instantiateServiceProviderWithoutRegistration(pServiceType: string, pOptions?: Record<string, any>, pCustomServiceHash?: string): any;
-    };
-    /** @type {import('fable') & import('pict') & { instantiateServiceProviderWithoutRegistration(pServiceType: string, pOptions?: Record<string, any>, pCustomServiceHash?: string): any }} */
     pict: any & import("pict") & {
         instantiateServiceProviderWithoutRegistration(pServiceType: string, pOptions?: Record<string, any>, pCustomServiceHash?: string): any;
     };
-    /** @type {any} */
-    log: any;
-    /** @type {Record<string, any>} */
-    options: Record<string, any>;
-    /** @type {string} */
-    UUID: string;
-    /** @type {string} */
-    Hash: string;
-    serviceType: string;
     /** @type {Record<string, any>} */
     _Package: Record<string, any>;
     /** @type {Record<string, any>} */
@@ -122,4 +109,5 @@ declare class PictProvider {
      */
     onAfterSaveDataAsync(fCallback: (pError?: Error) => void): void;
 }
+import libFableServiceBase = require("fable-serviceproviderbase");
 //# sourceMappingURL=Pict-Provider.d.ts.map
