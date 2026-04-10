@@ -127,9 +127,9 @@ Package metadata from `package.json`. Contains `name`, `version`, and other npm 
 
 ### initialize()
 
-Run the synchronous initialization sequence. Guards against re-initialization — a second call logs a warning and returns `false`.
+Run the synchronous initialization sequence. Guards against re-initialization -- a second call logs a warning and returns `false`.
 
-**Returns:** `boolean` — `true` if initialization ran, `false` if already initialized.
+**Returns:** `boolean` -- `true` if initialization ran, `false` if already initialized.
 
 ---
 

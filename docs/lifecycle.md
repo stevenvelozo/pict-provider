@@ -110,7 +110,7 @@ class CustomerProvider extends libPictProvider
 
 ## Solving
 
-The solve cycle processes loaded data — computing derived values, aggregating totals, validating state. Providers with `AutoSolveWithApp: true` (the default) participate when the Pict application solves.
+The solve cycle processes loaded data -- computing derived values, aggregating totals, validating state. Providers with `AutoSolveWithApp: true` (the default) participate when the Pict application solves.
 
 ### Sync Flow
 
@@ -205,8 +205,8 @@ class CustomerProvider extends libPictProvider
 | **Initialize** | `onBeforeInitialize`, `onInitialize`, `onAfterInitialize` | App init or provider registration | `AutoInitialize` |
 | **Load Data** | `onBeforeLoadDataAsync`, `onLoadDataAsync`, `onAfterLoadDataAsync` | App data load | `AutoLoadDataWithApp` |
 | **Solve** | `onPreSolve`, `solve` | App solve cycle | `AutoSolveWithApp` |
-| **Render** | `onPreRender`, `render` | Explicitly called | — |
-| **Save Data** | `onBeforeSaveDataAsync`, `onSaveDataAsync`, `onAfterSaveDataAsync` | App data save | — |
+| **Render** | `onPreRender`, `render` | Explicitly called | -- |
+| **Save Data** | `onBeforeSaveDataAsync`, `onSaveDataAsync`, `onAfterSaveDataAsync` | App data save | -- |
 
 ## Ordinals
 

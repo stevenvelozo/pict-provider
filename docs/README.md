@@ -1,6 +1,6 @@
 # Pict Provider
 
-The base class for data providers in Pict applications. Providers manage application data, register templates, and participate in the Pict application lifecycle. While views handle rendering to the DOM, providers handle everything else — loading data from APIs, transforming state, coordinating templates, and saving results.
+The base class for data providers in Pict applications. Providers manage application data, register templates, and participate in the Pict application lifecycle. While views handle rendering to the DOM, providers handle everything else -- loading data from APIs, transforming state, coordinating templates, and saving results.
 
 ## Quick Start
 
@@ -114,7 +114,7 @@ let tmpProvider = tmpPict.addProvider('MyProvider',
 | Concern | Provider | View |
 |---------|----------|------|
 | Purpose | Data management and logic | DOM rendering |
-| Lifecycle | init → load → solve → save | init → render → marshal |
+| Lifecycle | init -> load -> solve -> save | init -> render -> marshal |
 | State | Reads and writes AppData | Reads AppData for display |
 | Templates | Registers templates for views | Consumes templates for rendering |
 | Base class | `pict-provider` | `pict-view` |
